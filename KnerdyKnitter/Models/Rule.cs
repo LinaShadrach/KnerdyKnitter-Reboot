@@ -13,15 +13,30 @@ namespace KnerdyKnitter.Models
             { 0, 0 ,1 },
             { 0, 0, 0 }
         };
-        public static int[] GetRuleAsIntArray(int ruleAsDecimal){
+        public static int[] ConvertRuleToIntArray(int ruleAsDecimal){
+            string ruleAsBinaryString = Convert.ToString(ruleAsDecimal, 2);
+            if(ruleAsBinaryString.Length != 8)
+            {
+                ruleAsBinaryString = AddZeroesToBeginnning(ruleAsBinaryString);
+            }
             int[] ruleAsIntArray = new int[8];
             int count = 0;
-            foreach(char bit in (Convert.ToString(ruleAsDecimal, 2)))
+            foreach(char bit in ruleAsBinaryString)
             {
-                ruleAsIntArray[count] = bit;
+                ruleAsIntArray[count] = Convert.ToInt32(new string(bit, 1));
                 count++;
             }
             return ruleAsIntArray;
+        }
+        public static string AddZeroesToBeginnning(string ruleAsString)
+        {
+            string zeroes = "";
+            for (int i = 0; i < (8 - ruleAsString.Length); i++)
+            {
+                zeroes += "0";
+            }
+            ruleAsString = zeroes + ruleAsString;
+            return ruleAsString;
         }
     }
 }
