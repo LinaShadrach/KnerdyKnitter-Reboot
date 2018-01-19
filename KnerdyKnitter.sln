@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnerdyKnitter", "KnerdyKnitter\KnerdyKnitter.csproj", "{AD4617DB-C454-4DE8-9FF6-6C2328EE0BA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnerdyKnitter.Tests", "KnerdyKnitter.Tests\KnerdyKnitter.Tests.csproj", "{E7858B17-127C-49C1-87E4-2C7B1206111B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD4617DB-C454-4DE8-9FF6-6C2328EE0BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4617DB-C454-4DE8-9FF6-6C2328EE0BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4617DB-C454-4DE8-9FF6-6C2328EE0BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4617DB-C454-4DE8-9FF6-6C2328EE0BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7858B17-127C-49C1-87E4-2C7B1206111B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7858B17-127C-49C1-87E4-2C7B1206111B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7858B17-127C-49C1-87E4-2C7B1206111B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7858B17-127C-49C1-87E4-2C7B1206111B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
