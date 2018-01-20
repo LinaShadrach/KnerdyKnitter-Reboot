@@ -10,7 +10,7 @@ namespace KnerdyKnitter.Models
         public Scarf(int chosenRule, int length, int width)
         {
             ChosenRule = Rule.ConvertRuleToIntArray(chosenRule);
-            //CreateGarment(length, width);
+            CreateGarment(length, width);
         }
         public void CreateGarment(int length, int width)
         {
