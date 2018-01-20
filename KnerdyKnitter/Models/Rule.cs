@@ -4,14 +4,15 @@ namespace KnerdyKnitter.Models
     public static class Rule
     {
         public static int[,] BaseCombos =
-        {   { 1, 1, 1 },
-            { 1, 1, 0 },
-            { 1, 0, 1 },
-            { 1, 0, 0 },
-            { 0, 1, 1 },
-            { 0, 1, 0 },
-            { 0, 0 ,1 },
-            { 0, 0, 0 }
+        {
+			{ 0, 0, 0 },
+			{ 0, 0 ,1 },
+			{ 0, 1, 0 },
+			{ 0, 1, 1 },
+			{ 1, 0, 0 },
+			{ 1, 0, 1 },
+			{ 1, 1, 0 },
+			{ 1, 1, 1 }
         };
         public static int[] ConvertRuleToIntArray(int ruleAsDecimal){
             string ruleAsBinaryString = Convert.ToString(ruleAsDecimal, 2);
@@ -26,6 +27,7 @@ namespace KnerdyKnitter.Models
                 ruleAsIntArray[count] = Convert.ToInt32(new string(bit, 1));
                 count++;
             }
+            Array.Reverse(ruleAsIntArray);
             return ruleAsIntArray;
         }
         public static string AddZeroesToBeginnning(string ruleAsString)
