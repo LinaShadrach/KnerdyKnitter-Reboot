@@ -6,31 +6,34 @@ namespace KnerdyKnitter.Models
         public int Id { get; set; }
         public int[] ChosenRule { get; set; }
         public int[,] Creation { get; set; }
+        public int Length { get; set; }
+        public int Width { get; set; }
 
         public Scarf(int chosenRule, int length, int width)
         {
             ChosenRule = Rule.ConvertRuleToIntArray(chosenRule);
-            CreateGarment(length, width);
+            Length = length;
+            Width = width;
+            CreateGarment();
         }
-        public void CreateGarment(int length, int width)
+        public void CreateGarment()
         {
-			Creation = new int[width, length];
+			Creation = new int[Width, Length];
             CreateBaseRow();
-            for (int rowIndex = 1; rowIndex < length; rowIndex++ )
+            for (int rowIndex = 1; rowIndex < Length; rowIndex++ )
             {
                 BuildRow(rowIndex);
             }
         }
         public void BuildRow(int rowIndex)
         {
-            int width = Creation.GetLength(0);
-            for (int column = 0; column < width; column++)
+            for (int column = 0; column < Width; column++)
             {
                 if (column == 0)
                 {
-                    Creation[rowIndex, column] = GetCell(new int[] { Creation[rowIndex - 1, width - 1], Creation[rowIndex - 1, column], Creation[rowIndex - 1, column + 1] });
+                    Creation[rowIndex, column] = GetCell(new int[] { Creation[rowIndex - 1, Width - 1], Creation[rowIndex - 1, column], Creation[rowIndex - 1, column + 1] });
                 }
-                else if (column == width-1)
+                else if (column == Width-1)
                 {
                     Creation[rowIndex, column] = GetCell(new int[] { Creation[rowIndex - 1, column - 1], Creation[rowIndex - 1, column], Creation[rowIndex - 1, 0] });
                 }
@@ -50,9 +53,8 @@ namespace KnerdyKnitter.Models
         }
         public void CreateBaseRow()
         {
-            int width = Creation.GetLength(0);
             int[] baseRow = new int[] { 0, 0, 0, 1, 1, 1, 1, 0 };
-            for (int columnIndex = 1; columnIndex < width; columnIndex++)
+            for (int columnIndex = 1; columnIndex < Width; columnIndex++)
             {
                 Creation[0, columnIndex] = baseRow[columnIndex];
             }
