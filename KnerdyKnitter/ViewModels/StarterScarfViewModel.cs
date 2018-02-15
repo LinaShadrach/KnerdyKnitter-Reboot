@@ -3,7 +3,7 @@ using KnerdyKnitter.Models;
 
 namespace KnerdyKnitter.ViewModels
 {
-    public class ScarfViewModel : Scarf
+    public class StarterScarfViewModel : Scarf
     {
         public static int[,] BaseCombos { get; set; }
         public string PrimaryColor { get; set; }
@@ -11,7 +11,7 @@ namespace KnerdyKnitter.ViewModels
         public int XCoor { get; set; }
         public int YCoor { get; set; }
         public string[,] CreationClassesAndIds { get; set; }
-        public ScarfViewModel() : 
+        public StarterScarfViewModel() : 
          base(30, 10,  100)
         {
             PrimaryColor = GetRandomLightColor();
