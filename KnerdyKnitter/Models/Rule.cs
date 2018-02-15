@@ -14,8 +14,8 @@ namespace KnerdyKnitter.Models
 			{ 1, 1, 0 },
 			{ 1, 1, 1 }
         };
-        public static int[] ConvertRuleToIntArray(int ruleAsDecimal){
-            string ruleAsBinaryString = Convert.ToString(ruleAsDecimal, 2);
+        public static int[] ConvertRuleToIntArray(int ruleAsInt){
+            string ruleAsBinaryString = Convert.ToString(ruleAsInt, 2);
             if(ruleAsBinaryString.Length != 8)
             {
                 ruleAsBinaryString = AddZeroesToBeginnning(ruleAsBinaryString);
