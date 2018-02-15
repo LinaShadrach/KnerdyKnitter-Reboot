@@ -5,22 +5,30 @@ namespace KnerdyKnitter.ViewModels
 {
     public class ScarfViewModel : Scarf
     {
-        public static int[] StarterRule = new int[8]{ 0, 0, 0, 1, 1, 1, 1, 0 };
         public static int[,] BaseCombos { get; set; }
         public string PrimaryColor { get; set; }
         public string SecondaryColor { get; set; }
         public int XCoor { get; set; }
         public int YCoor { get; set; }
-        public int SvgWidth { get; set; }
-        public int SvgLength { get; set; }
         public string[,] CreationClassesAndIds { get; set; }
-        public ScarfViewModel(int chosenRule, int width, int length, string primaryColor, string secondaryColor) : 
-            base(chosenRule,  width,  length)
+        public ScarfViewModel() : 
+         base(30, 10,  100)
         {
-            PrimaryColor = primaryColor;
-            SecondaryColor = secondaryColor;
+            PrimaryColor = GetRandomLightColor();
+            SecondaryColor = GetRandomDarkColor();
             BaseCombos = Rule.BaseCombos;
         }
+
+        private string GetRandomDarkColor()
+        {
+            return "#775382";
+        }
+
+        private string GetRandomLightColor()
+        {
+            return "#f2ffb2";
+        }
+
         public void CreateClassesAndIds()
         {
             
@@ -28,6 +36,14 @@ namespace KnerdyKnitter.ViewModels
         public string GetHtmlId()
         {
             return "";
+        }
+        public int GetSvgWidth()
+        {
+            return width * 10;
+        }
+        public int GetSvgLength()
+        {
+            return length * 10;
         }
 
        
