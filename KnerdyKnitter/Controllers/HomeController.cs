@@ -1,10 +1,14 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc;
+
 namespace KnerdyKnitter.Controllers
 {
-    public class HomeController
+    public class HomeController :Controller
     {
-        public HomeController()
+        public ActionResult Index()
         {
+            return View();
         }
+
     }
 }
