@@ -1,10 +1,8 @@
 ﻿using System;
 namespace KnerdyKnitter.Models
 {
-    public class Scarf : IGarment
+    public class Scarf : Garment
     {
-        public int Id { get; set; }
-        public int[] ChosenRule { get; set; }
         public int[,] Creation { get; set; }
         public int Length { get; set; }
         public int Width { get; set; }

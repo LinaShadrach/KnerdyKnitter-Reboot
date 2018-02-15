@@ -1,9 +1,9 @@
 ﻿using System;
 namespace KnerdyKnitter.Models
 {
-    public interface IGarment
+    public abstract class Garment
     {
-        int Id { get; set; }
-        int[] ChosenRule { get; set; }
+        public int Id { get; set; }
+        public int[] ChosenRule { get; set; }
     }
 }
