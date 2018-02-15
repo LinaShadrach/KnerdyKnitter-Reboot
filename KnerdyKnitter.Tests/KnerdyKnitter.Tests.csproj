@@ -17,5 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model.Tests\" />
+    <Folder Include="Controller.Tests\" />
   </ItemGroup>
 </Project>
