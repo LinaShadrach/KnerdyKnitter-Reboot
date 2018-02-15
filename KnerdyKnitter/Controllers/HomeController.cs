@@ -1,4 +1,5 @@
 ﻿using System;
+using KnerdyKnitter.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KnerdyKnitter.Controllers
