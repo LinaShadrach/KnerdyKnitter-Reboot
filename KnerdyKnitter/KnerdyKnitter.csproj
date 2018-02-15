@@ -11,6 +11,7 @@
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
+    <Folder Include="Views\Scarf\" />
   </ItemGroup>
 
   <ItemGroup>
