@@ -4,9 +4,15 @@
 @using KnerdyKnitter.Models;
 
 <h1>Create a pattern!</h1>
-
+<form id="editForm">
+    <label>Primary Color: </label>
+    <input type="color" onchange="changePrimary(this.value)" value="@Model.PrimaryColor" name="primary" id="primaryColor">
+    <label>Secondary Color: </label>
+    <input type="color" onchange="changeSecondary(this.value)" value="@Model.SecondaryColor" name="secondary" id="secondaryColor"><br />
+    <input type="submit" id="saveChanges" value="Save changes" />
+</form>
 <svg class="scarf" width="1000" height="1000">
-    @for (var row = 0; row < Model.Creation.Length/ Model.Creation.GetLength(0); row++)
+    @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
     {
         @for (var col = 0; col < Model.Creation.GetLength(0); col++)
         {
