@@ -18,5 +18,6 @@
   <ItemGroup>
     <Folder Include="Model.Tests\" />
     <Folder Include="Controller.Tests\" />
+    <Folder Include="ViewModel.Tests\" />
   </ItemGroup>
 </Project>

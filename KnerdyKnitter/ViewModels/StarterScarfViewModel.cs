@@ -10,7 +10,6 @@ namespace KnerdyKnitter.ViewModels
         public string SecondaryColor { get; set; }
         public int XCoor { get; set; }
         public int YCoor { get; set; }
-        public string[,] CreationClasses { get; set; }
         public string[,] CreationIds { get; set; }
         public StarterScarfViewModel() : 
          base(30, 10,  100)
@@ -34,15 +33,9 @@ namespace KnerdyKnitter.ViewModels
         {
   
         }
-
-        private string GetCellIds(int row, int col)
+        public string GetCellIds(int row, int col)
         {
-            throw new NotImplementedException();
-        }
-
-        private string GetCellClasses(int row, int col)
-        {
-            throw new NotImplementedException();
+            return "cell" + row + col;
         }
 
         public string GetHtmlId()
