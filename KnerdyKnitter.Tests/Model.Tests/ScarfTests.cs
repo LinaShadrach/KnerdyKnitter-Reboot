@@ -26,13 +26,12 @@ namespace KnerdyKnitter.Tests.Model.Tests
         [TestMethod]
         public void CreateBaseRow_ReturnsCorrectRow_00011110()
         {
-            Scarf scarf = new Scarf(30, 8, 8);
-            int[] expectedBaseRow = new int[] { 0, 0, 0, 1, 1, 1, 1, 0 };
-            scarf.CreateBaseRow();
-            int[] resultBaseRow = new int[8];
-            for (int columnIndex = 0; columnIndex < 8; columnIndex++)
+			int[] expectedBaseRow = new int[] { 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 };
+            Scarf scarf = new Scarf(30, expectedBaseRow.Length, 100);
+            int[] resultBaseRow = new int[expectedBaseRow.Length];
+            for (int columnIndex = 0; columnIndex < expectedBaseRow.Length; columnIndex++)
             {
-                resultBaseRow[columnIndex] = scarf.Creation[0, columnIndex];
+                resultBaseRow[columnIndex] = scarf.Creation[columnIndex, 0];
             }
             CollectionAssert.AreEqual(expectedBaseRow, resultBaseRow);
         }

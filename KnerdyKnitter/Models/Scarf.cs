@@ -20,6 +20,7 @@ namespace KnerdyKnitter.Models
             CreateBaseRow();
             for (int rowIndex = 1; rowIndex < Length; rowIndex++ )
             {
+                Console.WriteLine("rowIndex: "+rowIndex);
                 BuildRow(rowIndex);
             }
         }
@@ -29,15 +30,15 @@ namespace KnerdyKnitter.Models
             {
                 if (column == 0)
                 {
-                    Creation[rowIndex, column] = GetCell(new int[] { Creation[rowIndex - 1, Width - 1], Creation[rowIndex - 1, column], Creation[rowIndex - 1, column + 1] });
+                    Creation[column, rowIndex] = GetCell(new int[] { Creation[Width - 1, rowIndex - 1], Creation[column, rowIndex - 1], Creation[column + 1, rowIndex - 1] });
                 }
                 else if (column == Width-1)
                 {
-                    Creation[rowIndex, column] = GetCell(new int[] { Creation[rowIndex - 1, column - 1], Creation[rowIndex - 1, column], Creation[rowIndex - 1, 0] });
+                    Creation[column, rowIndex] = GetCell(new int[] { Creation[column - 1, rowIndex - 1], Creation[column, rowIndex - 1], Creation[0, rowIndex - 1] });
                 }
                 else
                 {
-                    Creation[rowIndex, column] = GetCell(new int[] { Creation[rowIndex - 1, column - 1], Creation[rowIndex - 1, column], Creation[rowIndex - 1, column + 1] });
+                    Creation[column, rowIndex] = GetCell(new int[] { Creation[column - 1, rowIndex - 1], Creation[column, rowIndex - 1], Creation[column + 1, rowIndex - 1] });
                 }
             }
         }
@@ -51,10 +52,11 @@ namespace KnerdyKnitter.Models
         }
         public void CreateBaseRow()
         {
-            int[] baseRow = new int[] { 0, 0, 0, 1, 1, 1, 1, 0 };
-            for (int columnIndex = 1; columnIndex < Width; columnIndex++)
+            int[] baseRow = new int[] { 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 };
+            Console.Write(baseRow.Length);
+            for (int columnIndex = 0; columnIndex < Width; columnIndex++)
             {
-                Creation[0, columnIndex] = baseRow[columnIndex];
+                Creation[columnIndex, 0] = baseRow[columnIndex];
             }
         }
 
