@@ -1,4 +1,38 @@
 ﻿@{
     Layout = "_Layout";
+    model KnerdyKnitter.Models.Garment
 }
 <h1>Create a pattern!</h1>
+@using (Html.BeginForm())
+{
+    <label asp-for="ColDim">Number of Stitches</label>
+    @Html.TextBoxFor(model => model.ColDim)
+    <label asp-for="RowDim">Number of Rows</label>
+    @Html.TextBoxFor(model => model.RowDim)
+    <label asp-for="Rule">Rule: </label>
+    @Html.TextBoxFor(model => model.Rule)
+    <label>1st Color: </label>
+    <input type="color" name="primary">
+    <label>2nd Color: </label>
+    <input type="color" name="secondary">
+    <input type="submit" value="Save pattern"/>
+}
+
+
+
+<svg class="scarf" width="1000" height="1000">
+    @for (var row = 0; row < Model.Creation.Length()/ Model.Creation.GetLength(0); row++)
+    {
+        for (var col = 0; col < Model.Creation.GetLength(0); col++)
+        {
+            if (Creation[row, col]==0)
+            {
+                <rect id="" x="@{row*10}" y="@{col*10}" width="10" height="10" class="primary"/>0
+            }
+            else
+            {
+                <rect id="" x="@{row*10}" y="@{col*10}" width="10" height="10" class="secondary"/>
+            }
+        }
+    }
+</svg>
