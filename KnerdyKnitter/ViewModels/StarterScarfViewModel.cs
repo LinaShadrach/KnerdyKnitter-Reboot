@@ -31,7 +31,13 @@ namespace KnerdyKnitter.ViewModels
 
         public void CreateClassesAndIds()
         {
-  
+            for (int row = 0; row < Creation.GetLength(0); row++)
+            {
+                for (int col = 0; col < Creation.Length / Creation.GetLength(0); col++)
+                {
+                    CreationIds[row, col] = GetCellIds(row, col);
+                }
+            }
         }
         public string GetCellIds(int row, int col)
         {
