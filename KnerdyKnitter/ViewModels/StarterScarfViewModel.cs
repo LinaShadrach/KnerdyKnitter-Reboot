@@ -10,7 +10,8 @@ namespace KnerdyKnitter.ViewModels
         public string SecondaryColor { get; set; }
         public int XCoor { get; set; }
         public int YCoor { get; set; }
-        public string[,] CreationClassesAndIds { get; set; }
+        public string[,] CreationClasses { get; set; }
+        public string[,] CreationIds { get; set; }
         public StarterScarfViewModel() : 
          base(30, 10,  100)
         {
@@ -31,19 +32,30 @@ namespace KnerdyKnitter.ViewModels
 
         public void CreateClassesAndIds()
         {
-            
+  
         }
+
+        private string GetCellIds(int row, int col)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string GetCellClasses(int row, int col)
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetHtmlId()
         {
             return "";
         }
         public int GetSvgWidth()
         {
-            return width * 10;
+            return Width * 10;
         }
         public int GetSvgLength()
         {
-            return length * 10;
+            return Length * 10;
         }
 
        
