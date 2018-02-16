@@ -1,0 +1,10 @@
+.cell{
+    stroke-width:1;
+    stroke:black;
+}
+.primary{
+ fill:purple;
+}
+.secondary{
+  fill:gold;
+}
