@@ -5,7 +5,7 @@
 
 <h1>Create a pattern!</h1>
 
-<svg class="scarf" width="10000" height="10000">
+<svg class="scarf" width="1000" height="1000">
     @for (var row = 0; row < Model.Creation.Length/ Model.Creation.GetLength(0); row++)
     {
         @for (var col = 0; col < Model.Creation.GetLength(0); col++)
@@ -18,10 +18,8 @@
           }
           else
           {
-              <rect id=""  x="@xValue;" y="@yValue;" width="10" height="10" class="secondary" style = "fill:purple;stroke-width:1;stroke:black;"/>
+              <rect id=""  x="@xValue" y="@yValue" width="10" height="10" class="secondary" style = "fill:gold;stroke-width:1;stroke:black;"/>
           }
-
-
         }
     }
 </svg>
