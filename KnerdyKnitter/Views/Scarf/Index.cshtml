@@ -2,30 +2,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using KnerdyKnitter.Models;
-
-<h1>Create a pattern!</h1>
-<form id="editForm">
-    <label>Primary Color: </label>
-    <input type="color" onchange="changePrimary(this.value)" value="@Model.PrimaryColor" name="primary" id="primaryColor">
-    <label>Secondary Color: </label>
-    <input type="color" onchange="changeSecondary(this.value)" value="@Model.SecondaryColor" name="secondary" id="secondaryColor"><br />
-    <input type="submit" id="saveChanges" value="Save changes" />
-</form>
-<svg class="scarf" width="1000" height="1000">
-    @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
-    {
-        @for (var col = 0; col < Model.Creation.GetLength(0); col++)
+<div class="row">
+  <div class="col-5">
+    <form class="bg-md-grey" id="editForm">
+        <header class="form-header-dark">Create a pattern!</header>
+        <div class="row">
+          <div class="col-6">
+            <label class="text-dark">Primary Color: </label>
+            <input class ="input-light" type="color" onchange="changePrimary(this.value)" value="@Model.PrimaryColor" name="primary" id="primaryColor">
+          </div>
+          <div class="col-6">
+            <label class="text-dark">Secondary Color: </label>
+            <input class ="input-light" type="color" onchange="changeSecondary(this.value)" value="@Model.SecondaryColor" name="secondary" id="secondaryColor"><br />
+          </div>
+        </div>
+        <label class="text-dark">Rule: </label>
+        <input class ="input-light" type="number" min="1" max="256" onchange="changeRule(this.value)" value="30" name="primary" id="rule">
+        <input class="btn-dark" type="submit" id="saveChanges" value="Save changes" />
+    </form>
+  </div>
+  <div class="col-7">
+    <svg class="scarf" width="1000" height="1000">
+        @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
         {
-          var xValue=col*10;
-          var yValue=row*10;
-          if (Model.Creation[col, row]==0)
-          {
-              <rect id="" x="@xValue" y="@yValue" width="10" height="10" class="primary cell" />
-          }
-          else
-          {
-              <rect id=""  x="@xValue" y="@yValue" width="10" height="10" class="secondary cell" />
-          }
+            @for (var col = 0; col < Model.Creation.GetLength(0); col++)
+            {
+              var xValue=col*10;
+              var yValue=row*10;
+              if (Model.Creation[col, row]==0)
+              {
+                  <rect id="" x="@xValue" y="@yValue" width="10" height="10" class="primary cell" />
+              }
+              else
+              {
+                  <rect id=""  x="@xValue" y="@yValue" width="10" height="10" class="secondary cell" />
+              }
+            }
         }
-    }
-</svg>
+    </svg>
+  </div>
+</div>

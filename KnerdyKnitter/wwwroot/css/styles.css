@@ -8,3 +8,8 @@
 .secondary{
   fill:gold;
 }
+
+/* Form */
+#rule {
+  width:4em;
+}
