@@ -2,14 +2,31 @@
     stroke-width:1;
     stroke:black;
 }
+.scarf-display{
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 4px 0 4px 0;
+  overflow-y: auto;
+  height:35em;
+}
+.scarf-svg{
+}
 .primary{
  fill:purple;
 }
 .secondary{
   fill:gold;
 }
-
 /* Form */
-#rule {
+#select-rule input, .select-color input{
   width:4em;
+}
+#select-rule{
+  padding-top:0em;
+}
+.select-color input{
+  margin-bottom: 0em;
+}
+.edit-form header{
+  margin-bottom: 0em;
 }
