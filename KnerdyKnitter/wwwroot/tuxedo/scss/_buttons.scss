@@ -1,0 +1,68 @@
+button {
+  font-family: $header-font;
+  font-size: 1rem;
+  min-height: 50px;
+  font-weight: 500;
+  padding: 15px 40px;
+  margin-bottom: 20px;
+  transition: background ease-in-out 200ms, border ease-in-out 200ms;
+  &:hover, &:focus {
+    cursor: pointer;
+    outline: none;
+  }
+}
+.btn-light {
+  color: $dark;
+  background: $light;
+  border: 2px solid $light;
+  &:hover {
+    background: darken($light, 10%);
+    border-color: darken($light, 10%);
+  }
+}
+.btn-dark {
+  color: $light;
+  background: $dark;
+  border: 2px solid $dark;
+  &:hover {
+    background: lighten($dark, 20%);
+    border-color: lighten($dark, 20%);
+  }
+}
+.btn-pop {
+  color: $light;
+  background: $color-pop;
+  border: 2px solid $color-pop;
+  &:hover {
+    background: darken($color-pop, 10%);
+    border-color: darken($color-pop, 10%);
+  }
+}
+[class*="btn-ghost"] {
+  background: none;
+}
+.btn-ghost-light {
+  border: 2px solid $light;
+  color: $light;
+  &:hover {
+    background: $light;
+    color: $dark;
+  }
+}
+.btn-ghost-dark {
+  border: 2px solid $dark;
+  color: $dark;
+  &:hover {
+    background: $dark;
+    color: $light;
+  }
+}
+.btn-ghost-pop {
+  border: 2px solid $color-pop;
+  color: $color-pop;
+  &:hover {
+    border: 2px solid $color-pop;
+    background: $color-pop;
+    color: $light;
+  }
+}

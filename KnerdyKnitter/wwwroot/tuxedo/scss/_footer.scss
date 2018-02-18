@@ -1,0 +1,14 @@
+footer {
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  min-height: 65px;
+  height: auto;
+  background: $light;
+  @media screen and #{$tablet} {
+    height: auto;
+    min-height: 65px;
+  }
+}
