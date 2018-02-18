@@ -4,8 +4,6 @@
 }
 .scarf-display{
   background-color: #FFFFFF;
-  border: 1px solid #000000;
-  border-radius: 4px 0 4px 0;
   overflow-y: auto;
   height:35em;
 }

@@ -3,8 +3,8 @@
 }
 @using KnerdyKnitter.Models;
 <div class="row flex-responsive">
-  <div class="col-5 flex-center">
-    <form class="bg-md-grey edit-form" id="editForm">
+  <div class="col-7 flex-center">
+    <form class="edit-form" id="editForm">
       <div class="f-row">
         <header class="form-header-dark">Create a pattern!</header>
         <div class="f-row select-color">
@@ -29,23 +29,23 @@
       </div>
     </form>
   </div>
-  <div class="col-7 scarf-display">
+  <div class="col-5 scarf-display">
     <div class="f-row flex-responsive scarf-svg">
       <div class="f-col-4 flex-center">
-        <svg class="scarf" width="100" height="1000">
+        <svg class="scarf" width="200" height="2000">
             @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
             {
                 for (var col = 0; col < Model.Creation.GetLength(0); col++)
                 {
-                  var xValue=col*10;
-                  var yValue=row*10;
+                  var xValue=col*20;
+                  var yValue=row*20;
                   if (Model.Creation[col, row]==0)
                   {
-                      <rect id="" x="@xValue" y="@yValue" width="10" height="10" class="primary cell" />
+                      <rect id="" x="@xValue" y="@yValue" width="20" height="20" class="primary cell" />
                   }
                   else
                   {
-                      <rect id=""  x="@xValue" y="@yValue" width="10" height="10" class="secondary cell" />
+                      <rect id=""  x="@xValue" y="@yValue" width="20" height="20" class="secondary cell" />
                   }
                 }
             }
