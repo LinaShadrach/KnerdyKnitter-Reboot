@@ -24,14 +24,14 @@ function changeRule(rule) {
   drawScarf(rule);
 }
 
-function drawScarf(rule){
+function drawScarf(rule) {
   var scarfSvg = "<svg class='scarf' width='200' height='2000'>";
-  var baseRow = [1, 1, 0, 0, 0, 1, 1, 1, 1, 0];
+  var baseRow = [0, 0, 0, 0, 0, 1, 0, 0, 0, 0];
   var creation = createScarfBinary(baseRow, rule);
   var x = 0;
   var y = 0;
-  creation.forEach(function(row){
-    row.forEach(function(cell){
+  creation.forEach(function(row) {
+    row.forEach(function(cell) {
       if(cell===0){
         scarfSvg += "<rect id='' x='"+x+"' y='"+y+"' width='20' height='20' class='primary cell' />";
       }
@@ -49,11 +49,11 @@ function drawScarf(rule){
   changeColors();
 }
 
-function changeRuleToBinaryArray(rule){
+function changeRuleToBinaryArray(rule) {
   rule = parseInt(rule).toString(2);
   var originalLength=rule.length;
-  if(originalLength<8){
-    for(var i=0; i<8-originalLength; i++){
+  if(originalLength<8) {
+    for(var i=0; i<8-originalLength; i++) {
       rule="0"+rule;
     }
   }
@@ -64,12 +64,12 @@ function changeRuleToBinaryArray(rule){
 function createScarfBinary(baseRow, rule) {
   var creation = [[]];
   var column = 0;
-  baseRow.forEach(function(cell){
+  baseRow.forEach(function(cell) {
     creation[0].push(cell);
   })
-  for(var row=1; row<100; row++){
+  for(var row=1; row<100; row++) {
     creation[row]=[];
-    for(var column=0; column<baseRow.length; column++){
+    for(var column=0; column<baseRow.length; column++) {
       if(column===0){
         creation[row].push(getCell([creation[row-1][baseRow.length - 1], creation[row-1][column], creation[row-1][column+1]], rule));
       }
@@ -84,7 +84,7 @@ function createScarfBinary(baseRow, rule) {
   return creation;
 }
 
-function getCell(parentCells, rule){
+function getCell(parentCells, rule) {
   var position = parseInt(parentCells.join(""), 2);
   var reversedRule = rule.slice().reverse();
   return parseInt(reversedRule[position]);
