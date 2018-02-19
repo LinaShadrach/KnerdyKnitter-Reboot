@@ -22,8 +22,12 @@
 #select-rule{
   padding-top:0em;
 }
+.dimensions input{
+  display: inline;
+}
 .select-color input{
   margin-bottom: 0em;
+  margin-right: 0em;
 }
 .edit-form header{
   margin-bottom: 0em;
