@@ -9,12 +9,12 @@
 }
 .scarf-svg{
 }
-.primary{
+/* .primary{
  fill:purple;
 }
 .secondary{
   fill:gold;
-}
+} */
 /* Form */
 #select-rule input, .select-color input{
   width:4em;

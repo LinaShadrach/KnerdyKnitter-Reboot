@@ -10,11 +10,11 @@
         <div class="f-row select-color">
           <div class="f-col-2">
             <label class="text-dark">Primary Color:&nbsp&nbsp&nbsp&nbsp</label>
-            <input class="input-light" type="color" onchange="changePrimary(this.value)" value="@Model.PrimaryColor" name="primary" id="primaryColor">
+            <input class="input-light" type="color" onchange="changePrimaryColor()" value="@Model.PrimaryColor" name="primary" id="primaryColor">
           </div>
           <div class="f-col-2">
             <label class="text-dark">Secondary Color:</label>
-            <input class ="input-light" type="color" onchange="changeSecondary(this.value)" value="@Model.SecondaryColor" name="secondary" id="secondaryColor"><br />
+            <input class ="input-light" type="color" onchange="changeSecondaryColor()" value="@Model.SecondaryColor" name="secondary" id="secondaryColor"><br />
           </div>
         </div>
         <div class="f-row">
@@ -31,7 +31,7 @@
   </div>
   <div class="col-5 scarf-display">
     <div class="f-row flex-responsive scarf-svg">
-      <div class="f-col-4 flex-center">
+      <div class="f-col-4 flex-center scarf-container">
         <svg class="scarf" width="200" height="2000">
             @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
             {
