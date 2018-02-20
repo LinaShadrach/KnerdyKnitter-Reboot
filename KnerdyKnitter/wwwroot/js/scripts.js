@@ -32,11 +32,12 @@ function drawScarf(rule) {
   var y = 0;
   creation.forEach(function(row) {
     row.forEach(function(cell) {
+      scarfSvg += "<rect id='' x='"+x+"' y='"+y+"' width='20' height='20' class= cell";
       if(cell===0){
-        scarfSvg += "<rect id='' x='"+x+"' y='"+y+"' width='20' height='20' class='primary cell' />";
+        scarfSvg += "primary'/>";
       }
       else {
-        scarfSvg += "<rect id='' x='"+x+"' y='"+y+"' width='20' height='20' class='secondary cell' />";
+        scarfSvg += "secondary'/>";
       }
       x+=20;
     });
