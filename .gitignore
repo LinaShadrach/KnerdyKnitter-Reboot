@@ -1,6 +1,10 @@
-## unnecessary SCSS/CSS
+## Unnecessary SCSS/CSS
 /.sass-cache
 master-tuxedo.css
+master-tuxedo.css.map
+
+## JS packages
+package-lock.json
 
 # Suggested files to ignore from Visual Studio
 ## Ignore Visual Studio temporary files, build results, and

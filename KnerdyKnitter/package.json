@@ -1,0 +1,29 @@
+{
+  "name": "knerdyknitter",
+  "version": "1.0.0",
+  "description": "generates knitting patterns from cellular automata rules",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/linashadrach/KnerdyKnitter.git"
+  },
+  "keywords": [
+    "knit",
+    "cellular",
+    "automata"
+  ],
+  "author": "Lina Shadrach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/linashadrach/KnerdyKnitter/issues"
+  },
+  "homepage": "https://gitlab.com/linashadrach/KnerdyKnitter#README",
+  "devDependencies": {
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  }
+}
