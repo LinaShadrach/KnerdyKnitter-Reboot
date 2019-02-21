@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace KnerdyKnitter.Models
 {
     public class Scarf : Garment
@@ -6,7 +7,11 @@ namespace KnerdyKnitter.Models
         public int[,] Creation { get; set; }
         public int Length { get; set; }
         public int Width { get; set; }
-
+        public string Primary { get; set; }
+        public string Secondary { get; set; }
+        public DateTime CreationDate { get; set; }
+        public static List<Scarf> instances  = new List<Scarf>{};
+        private int _rule;
         public Scarf(int chosenRule, int width, int length)
         {
             ChosenRule = Rule.ConvertRuleToIntArray(chosenRule);
@@ -14,13 +19,29 @@ namespace KnerdyKnitter.Models
             Width = width;
             CreateGarment();
         }
+        public Scarf(int chosenRule, int width, int length, string primary, string secondary, DateTime creationDate)
+        {
+            _rule = chosenRule;
+            ChosenRule = Rule.ConvertRuleToIntArray(chosenRule);
+            Length = length;
+            Width = width;
+            Primary = primary;
+            Secondary = secondary;
+            CreationDate = creationDate;
+            CreateGarment();
+            instances.Add(this);
+
+        }
+        public int GetRuleAsNumber()
+        {
+          return _rule;
+        }
         public void CreateGarment()
         {
-			Creation = new int[Width, Length];
+			      Creation = new int[Width, Length];
             CreateBaseRow();
             for (int rowIndex = 1; rowIndex < Length; rowIndex++ )
             {
-                Console.WriteLine("rowIndex: "+rowIndex);
                 BuildRow(rowIndex);
             }
         }
@@ -52,11 +73,16 @@ namespace KnerdyKnitter.Models
         }
         public void CreateBaseRow()
         {
-            int[] baseRow = new int[] { 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 };
-            Console.Write(baseRow.Length);
             for (int columnIndex = 0; columnIndex < Width; columnIndex++)
             {
-                Creation[columnIndex, 0] = baseRow[columnIndex];
+              if(columnIndex == Width/2)
+              {
+                Creation[columnIndex, 0] = 1;
+              }
+              else
+              {
+                Creation[columnIndex, 0] = 0;
+              }
             }
         }
 
