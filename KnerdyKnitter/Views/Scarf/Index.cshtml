@@ -5,44 +5,42 @@
 <div class="container">
 <div class="row">
   <div class="col s12 m6 l6">
-    <form class="edit-form" id="editForm" action="/scarf/create" method="post">
-        <header class="form-header-dark">Create a pattern!</header>
-        <div class="f-row select-color">
-          <div class="f-col-2 dimensions">
+    <form class="edit-form row" id="editForm" action="/scarf/create" method="post">
+        <h1>Create a pattern!</h1>
+        <div class="row">
+          <div class="input-field col s6 dimensions">
+            <input class ="validate" type="number" onchange="changeDimensions()" value="@Model.Width" name="width" id="width">
             <label class="text-dark">Stitches: </label>
-            <input class ="input-light" type="number" onchange="changeDimensions()" value="@Model.Width" name="width" id="width">
-            <br>
-            <label class="text-dark">Rows: </label>
-            <input class ="input-light" type="number" onchange="changeDimensions()" value="@Model.Length" name="length" id="length">
           </div>
-          <div class="f-col-2">
-            <div class="f-row">
-              <div class="f-col-2">
-                <label class="text-dark">Primary:&nbsp&nbsp&nbsp&nbsp</label>
-                <input class="input-light" type="color" onchange="changePrimaryColor()" value="@Model.Primary" name="primary" id="primaryColor">
+          <div class="input-field col s6 dimensions">
+            <input class ="validate" type="number" onchange="changeDimensions()" value="@Model.Length" name="length" id="length">
+            <label class="text-dark">Rows: </label>
+          </div>
+          <div class="col s12">
+            <div class="row">
+              <div class="col s3 select-color">
+                <label class="text-dark">Primary:</label>
+                <input class="validate" type="color" onchange="changePrimaryColor()" value="@Model.Primary" name="primary" id="primaryColor">
               </div>
-              <div class="f-col-2">
+              <div class="col s3 select-color">
                 <label class="text-dark">Secondary:</label>
-                <input class ="input-light" type="color" onchange="changeSecondaryColor()" value="@Model.Secondary" name="secondary" id="secondaryColor"><br />
+                <input class ="validate" type="color" onchange="changeSecondaryColor()" value="@Model.Secondary" name="secondary" id="secondaryColor"><br />
               </div>
 
+              <div class="input-field col s3" id="select-rule">
+                <input class ="validate" type="number" min="1" max="256" onchange="changeRule()" value="30" name="rule" id="rule">
+                <label class="text-dark">Rule: </label>
+              </div>
+              <div class="input-field col s3">
+                <button class="deep-purple lighten-3 waves-effect waves-light btn" type="submit" id="saveChanges">Save changes</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="f-row">
-          <div class="f-col-2" id="select-rule">
-            <label class="text-dark">Rule: </label>
-            <input class ="input-light" type="number" min="1" max="256" onchange="changeRule()" value="30" name="rule" id="rule">
-          </div>
-        </div>
-        <div class="f-row">
-          <input class="btn-dark" type="submit" id="saveChanges" value="Save changes" />
-        </div>
-      </div>
     </form>
-  </div>
-  <div class="col-5 scarf-display">
-    <div class="f-row flex-responsive scarf-svg">
+  </div> <!-- end of form -->
+  <div class="col 5 scarf-display">
+    <div class="row flex-responsive scarf-svg">
       <div class="f-col-4 flex-center scarf-container">
         <svg class="scarf" width="1000" height="2000">
             @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
