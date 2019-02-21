@@ -1,0 +1,70 @@
+@{
+    ViewData["Title"] = "Creations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    @if (Model.Count == 0)
+    {
+        <p>You have not made any creations yet.</p>
+        <p>@Html.ActionLink("Create", "Index", "Garment", new { id = 0 }) a new pattern.</p>
+
+    }
+    @foreach (var garment in Model)
+    {
+        <div class="col s12 m6 l4">
+            <div class="card deep-purple lighten-1">
+                <div class="card-content white-text">
+                    <h3><span class="card-title garmentRule">Rule Used: @garment.GetRuleAsNumber()</span></h3>
+                    <div class="row">
+                        <div class="col s12 m6 l6">
+                            <label>Primary color: </label>
+                            <svg width="10" height="10">
+                                <rect x="0" y="0" width="10" height="10" style="fill:@garment.Primary;stroke-width:1;stroke:black;display:inline;" />
+                            </svg>
+                            <br />
+                            <label>Secondary color: </label>
+                            <svg width="10" height="10">
+                                <rect x="0" y="0" width="10" height="10" style="fill:@garment.Secondary;stroke-width:1;stroke:black;display:inline;" />
+                            </svg>
+                            <br />
+                            <p>Date Created: @garment.CreationDate</p><br />
+                        </div>
+                        <div class="col s12 m6 l6">
+                          @{
+                              var svgWidth = garment.Width * 5;
+                              var svgHeight = garment.Length * 5;
+                          }
+                          <svg onclick="showMore(@(garment.Width * 5), @(garment.Length * 5))" class="scarf" width="100" height="100" display="inline">
+                              @{ int yCoor = 0;
+                                  int xCoor = 0;
+                                  int index = 0; }
+                              @foreach (var cell in garment.Creation)
+                              {
+                                @if (cell == 1)
+                                {
+                                    <rect class="cell" x="@(xCoor)" y="@(yCoor)" width="5" height="5" style="fill:@garment.Secondary; stroke-width:1;stroke:black;" />
+                                }
+                                @if (cell == 0)
+                                {
+                                    <rect class="cell" x="@(xCoor)" y="@(yCoor)" width="5" height="5" style="fill:@garment.Primary; stroke-width:1;stroke:black;" />
+                                }
+                                @(index++)
+                                @(xCoor = xCoor + 5)
+                                @if (index % garment.Creation.GetLength(0) == 0)
+                                {
+                                  @(yCoor = yCoor + 5)
+                                  @(xCoor = 0)
+                                }
+                              }
+                          </svg>
+                      </div>
+                    </div>
+                    <div class="card-action">
+                        @Html.ActionLink("Edit", "Edit", "Garment", new { id = garment.Id })
+                        @Html.ActionLink("Delete", "Delete", "Garment", new { id = garment.Id })
+                    </div>
+                </div>
+            </div>
+        </div>
+       }
+    </div>
