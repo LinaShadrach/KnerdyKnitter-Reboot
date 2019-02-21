@@ -6,16 +6,16 @@ namespace KnerdyKnitter.ViewModels
     public class StarterScarfViewModel : Scarf
     {
         public static int[,] BaseCombos { get; set; }
-        public string PrimaryColor { get; set; }
-        public string SecondaryColor { get; set; }
+        public string Primary { get; set; }
+        public string Secondary { get; set; }
         public int XCoor { get; set; }
         public int YCoor { get; set; }
         public string[,] CreationIds { get; set; }
-        public StarterScarfViewModel() : 
-         base(30, 10,  100)
+        public StarterScarfViewModel() :
+        base(30, 50,  100)
         {
-            PrimaryColor = GetRandomLightColor();
-            SecondaryColor = GetRandomDarkColor();
+            Primary = GetRandomLightColor();
+            Secondary = GetRandomDarkColor();
             BaseCombos = Rule.BaseCombos;
         }
 
@@ -57,6 +57,6 @@ namespace KnerdyKnitter.ViewModels
             return Length * 10;
         }
 
-       
+
     }
 }
