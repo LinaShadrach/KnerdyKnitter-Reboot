@@ -2,28 +2,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using KnerdyKnitter.Models;
-<div class="row flex-responsive">
-  <div class="col-7 flex-center">
-    <form class="edit-form" id="editForm">
-      <div class="f-row">
+<div class="container">
+<div class="row">
+  <div class="col s12 m6 l6">
+    <form class="edit-form" id="editForm" action="/scarf/create" method="post">
         <header class="form-header-dark">Create a pattern!</header>
         <div class="f-row select-color">
           <div class="f-col-2 dimensions">
             <label class="text-dark">Stitches: </label>
-            <input class ="input-light" type="number" onchange="changeDimensions()" value="10" name="width" id="width">
+            <input class ="input-light" type="number" onchange="changeDimensions()" value="@Model.Width" name="width" id="width">
             <br>
             <label class="text-dark">Rows: </label>
-            <input class ="input-light" type="number" onchange="changeDimensions()" value="100" name="length" id="length">
+            <input class ="input-light" type="number" onchange="changeDimensions()" value="@Model.Length" name="length" id="length">
           </div>
           <div class="f-col-2">
             <div class="f-row">
               <div class="f-col-2">
                 <label class="text-dark">Primary:&nbsp&nbsp&nbsp&nbsp</label>
-                <input class="input-light" type="color" onchange="changePrimaryColor()" value="@Model.PrimaryColor" name="primary" id="primaryColor">
+                <input class="input-light" type="color" onchange="changePrimaryColor()" value="@Model.Primary" name="primary" id="primaryColor">
               </div>
               <div class="f-col-2">
                 <label class="text-dark">Secondary:</label>
-                <input class ="input-light" type="color" onchange="changeSecondaryColor()" value="@Model.SecondaryColor" name="secondary" id="secondaryColor"><br />
+                <input class ="input-light" type="color" onchange="changeSecondaryColor()" value="@Model.Secondary" name="secondary" id="secondaryColor"><br />
               </div>
 
             </div>
@@ -44,7 +44,7 @@
   <div class="col-5 scarf-display">
     <div class="f-row flex-responsive scarf-svg">
       <div class="f-col-4 flex-center scarf-container">
-        <svg class="scarf" width="200" height="2000">
+        <svg class="scarf" width="1000" height="2000">
             @for (var row = 0; row < Model.Creation.Length/Model.Creation.GetLength(0); row++)
             {
                 for (var col = 0; col < Model.Creation.GetLength(0); col++)
