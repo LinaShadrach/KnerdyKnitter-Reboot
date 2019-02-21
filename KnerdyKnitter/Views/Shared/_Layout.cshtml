@@ -9,23 +9,22 @@
         crossorigin="anonymous"></script>
     <script src="~/js/d3.min.js" type="text/javascript"></script>
     <script src="~/js/scripts.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="~/tuxedo/scss/master-tuxedo.css" type="text/css"/>
-    <link rel="stylesheet" href="~/css/styles.css" type="text/css"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet"href="~/css/styles.css" type="text/css"/>
 
 </head>
 <body>
-  <div class="">
-    <nav class="nav-ghost-dark relative"> 
-      <header> 
-        <h1><a href="/">Nerdy Knits</a></h1>
-      </header>
-      <ul class="menu-items"> 
-        <li class="f-col-1 flex-center">
-          <a href="/scarf">Create</a>
-        </li> 
+  <nav class="deep-purple accent-1">
+    <div class="nav-wrapper">
+      <ul class="right">
+        <li>@Html.ActionLink("About", "Index", "Home")</li>
+        <li>@Html.ActionLink("Create", "Index", "Scarf")</li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
   <div>
       @RenderBody()
   </div>
